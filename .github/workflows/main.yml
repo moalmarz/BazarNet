@@ -13,10 +13,8 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
       
-    - name: Configure environment variables
-      run: |
-        echo "::set-env name=USERNAME::${{ secrets.USERNAME }}"
-        echo "::set-env name=PASSWORD::${{ secrets.PASSWORD }}"
+    - name: Create environment file
+      run: echo "USERNAME=${{ secrets.USERNAME }}" >> $GITHUB_ENV && echo "PASSWORD=${{ secrets.PASSWORD }}" >> $GITHUB_ENV
       
     - name: Deploy website
       uses: JamesIves/github-pages-deploy-action@3.7.1
