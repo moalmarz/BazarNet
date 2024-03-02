@@ -182,7 +182,7 @@
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
 
-        if (username === "your_username" && password === "your_password") {
+        if (username === "${{ secrets.USERNAME }}" && password === "${{ secrets.PASSWORD }}") {
             document.getElementById("translator").style.display = "block";
             document.getElementById("loginForm").style.display = "none";
         } else {
